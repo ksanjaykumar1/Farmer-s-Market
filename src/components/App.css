@@ -1,0 +1,47 @@
+/* Styles go here */
+body {
+    padding: 5rem 5rem 10rem;
+    line-height: 1.7;
+    font-family: 'Nunito Sans', sans-serif;
+    
+    color: rgb(46, 179, 86);
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #90968a, #232423);
+  }
+
+
+  .product {
+  
+    width: 33rem;
+    flex: 1 0 500px;
+    margin: 0 auto;
+    margin-top: 9rem;
+    background:yellowgreen;
+    color: rgb(26, 24, 24);
+    box-shadow: 0 3rem 6rem 1rem rgba(0, 0, 0, 0.2);
+    position: relative;
+    
+  }
+  .label {
+    color: rgb(228, 216, 216);   
+
+  }
+
+  .product__organic {
+    
+    position: absolute;
+    top: -4rem;
+    right: -4rem;
+    z-index: 1000;
+    height: 11rem;
+    width: 11rem;
+  
+    background-image: linear-gradient(to bottom, #9be15d, #00e3ae);
+    border-radius: 50%;
+    transform: rotate(15deg);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: wheat;
+  }

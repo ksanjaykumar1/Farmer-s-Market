@@ -1,0 +1,14 @@
+.pt-navbar {
+  line-height: 64px;
+}
+
+#brandName {
+  font-size: 18px;
+}
+
+#brand-name > strong {
+  color: rgb(254, 95, 44);
+}
+#button {
+  marginRight: '10px'
+}
