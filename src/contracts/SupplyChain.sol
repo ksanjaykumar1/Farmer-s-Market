@@ -1,11 +1,6 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
-// import "./FarmerRole.sol";
-// import "./ConsumerRole.sol";
-// import "./RetailerRole.sol";
-// import "./DistributorRole.sol";
 
-//is FarmerRole,ConsumerRole,RetailerRole, DistributorRole
 
 contract SupplyChain  {
 
@@ -120,10 +115,7 @@ contract SupplyChain  {
   mapping (uint=>UnionState) public unionstate;
   mapping ( uint=>mapping(uint=>Unionmembers))  public members;
 
-  // function xxx() public {
-  //  unionsinfo[1].cropmember[1][0] = 6;
-  //  unionsinfo[1].cropmember[1][1] = 16;
-  // }
+  
 
 
 
@@ -142,69 +134,6 @@ contract SupplyChain  {
 
   }
 
-  
-  // Define a modifier that checks if the paid amount is sufficient to cover the price
-  // modifier paidEnough(uint _price) {
-  //   require(msg.value >= _price);
-  //   _;
-  // }
-
-  // // Define a modifier that checks if an item.state of a upc is Harvested
-  // modifier harvestedcrops(uint _upc)
-  //  {
-  //   require(crops[_upc].farmstate == State.Harvested);
-  //   _;
-  // }
-
-  // // Define a modifier that checks if an item.state of a upc is Processed
-  // modifier processedcrops(uint _upc) {
-  //   require(crops[_upc].farmstate == State.Processed);
-  //   _;
-  // }
-
-  // modifier soldcrops(uint _upc) {
-  //   require(crops[_upc].farmstate == State.Sold);
-  //   _;
-  // }
-  
-
-
- // Define a modifier that checks if an item.state of a upc is Packed
-  // modifier packedproducts(uint _upc) {
-  //   require(products[_upc].productState == State.Packed);
-  //   _;
-  // }
-
-  // // Define a modifier that checks if an item.state of a upc is ForSale
-  // modifier forSaleproducts(uint _upc) {
-  //   require(products[_upc].productState == State.ForSale);
-  //   _;
-  // }
-
-  // // Define a modifier that checks if an item.state of a upc is Sold
-  
-  // modifier soldproducts(uint _upc) {
-  //   require(products[_upc].productState == State.Sold);
-  //   _;
-  // }
-  
-  // // Define a modifier that checks if an item.state of a upc is Shipped
-  // modifier shippedproducts(uint _upc) {
-  //   require(products[_upc].productState == State.Shipped);
-  //   _;
-  // }
-
-  // // Define a modifier that checks if an item.state of a upc is Received
-  // modifier received(uint _upc) {
-  //   require(products[_upc].productState == State.Received);
-  //   _;
-  // }
-
-  // // Define a modifier that checks if an item.state of a upc is Purchased
-  // modifier purchasedproducts(uint _upc) {
-  //   require(products[_upc].productState == State.Purchased);
-  //   _;
-  // }
 
 
     function harvestCrop(
@@ -249,30 +178,6 @@ contract SupplyChain  {
         unionstate[unionc].cropstate = CropState(_cropstate);
         unionstate[unionc].payment = Unionpayment(_paymentstate);
     }
-
-
-
-//     function displayunion(
-//         uint _unionid
-//     ) public returns ( uint upc,
-//     uint uNumber,
-//     address payable uowner,
-//       string memory _cropName,
-//         uint _maxkg,
-// string memory _location )
-//     {
-      
-//         uNumber = unions[ _unionid].uNumber;
-//         upc = unions[ _unionid].upc;
-//         uowner = unions[ _unionid].uowner;
-//         _maxkg = unions[ _unionid].maxkg;
-//         _cropName = unions[ _unionid].cropName;
-//         _location = unions[ _unionid].location ;
-       
-//     }
-
-
-
     
 
     function registerProduct(string memory _productname,
@@ -321,32 +226,6 @@ contract SupplyChain  {
 
     }
 
-    // function DistributorBuy(uint _productid) public payable
-    // {
-    //   require(msg.value >= products[_productid].price);
-    // // products[_productid].productState=State.Sold;
-    //   address payable _seller = products[_productid].productowner;
-    //   products[_productid].Distributor = msg.sender;
-    //   address(_seller).transfer(msg.value);
-    // }
-
-    // function RetailerBuy(uint _productid) public payable
-    // {
-    //   require(msg.value >= products[_productid].price);
-    //  // products[_productid].productState=State.Sold;
-    //   address payable _seller = products[_productid].productowner;
-    //   products[_productid].Retailer= msg.sender;
-    //   address(_seller).transfer(msg.value);
-    // }
-
-    // function ConsumerBuy(uint _productid) public payable
-    // {
-    //   require(msg.value >= products[_productid].price);
-    //   products[_productid].productState = State.Sold;
-    //   address payable _seller = products[_productid].productowner;
-    //   // products[_productid].Retailer= msg.sender;
-    //   address(_seller).transfer(msg.value);
-    // }
 
     function cropPurchase(uint _cropid) public payable {
       
@@ -387,17 +266,6 @@ contract SupplyChain  {
       union.priceforsale = _price;
       unionstate[_unionid].productState = State.ForSale;
       unions[_unionid] = union;
-      //  if(unionstate[unionc].payment == Unionpayment.lending)
-      //  {
-      //    calculatepayment(_unionid);
-      //    unionstate[unionc].paidstate =  Unionpayment.notsent;
-
-      //  }
-      //  else
-      //  {
-      //    calculatepayment(_unionid);
-      //    unionstate[unionc].payment =  Unionpayment.notsent;
-      //  }
 
 
     }
@@ -436,10 +304,6 @@ contract SupplyChain  {
 
       unionstate[unionc].paidstate = Memberpaidstate.sent;
     }
-    
-    
-
-  
 
 
 
